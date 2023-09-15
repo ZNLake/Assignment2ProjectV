@@ -23,7 +23,7 @@
     <Text Include="..\..\..\..\..\..\..\Downloads\StudentData.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\..\..\..\..\..\..\Downloads\StudentData_Emails.txt">
+    <Text Include="StudentData_Emails.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
