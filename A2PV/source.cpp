@@ -7,7 +7,8 @@
 
 #ifdef _DEBUG
 #define LOG(x) std::cout << "MACRO: " << x << endl;
-#define PRE_RELEASE
+//#define PRE_RELEASE
+#define MAIN
 #else
 #define LOG(x)
 #endif // _DEBUG
@@ -31,7 +32,7 @@ int main()
 	vector<STUDENT_DATA> v1;
 	string lineText;
 
-#ifdef main
+#ifdef MAIN
 	LOG("running standard code.")
 		readFile.open("StudentData.txt");
 #endif
@@ -48,7 +49,7 @@ int main()
 		int commaLocation = lineText.find_first_of(',');
 		student.firstName = lineText.substr(0, commaLocation);
 
-#ifdef main
+#ifdef MAIN
 		student.lastName = lineText.substr(commaLocation + 1);
 #endif
 
@@ -57,8 +58,15 @@ int main()
 		student.lastName = lineText.substr(commaLocation + 1, commaLocation2);
 		student.email = lineText.substr(commaLocation2 + 1);
 #endif
-
 		v1.push_back(student);
+
+#ifdef MAIN
+		cout << v1.back().lastName + ", " + v1.back().firstName << endl;
+#endif
+
+#ifdef PRE_RELEASE
+		cout << v1.back().lastName + ", " + v1.back().firstName + ", " + v1.back().email << endl;
+#endif
 	}
 
 	readFile.close();
